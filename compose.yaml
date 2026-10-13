@@ -1,0 +1,15 @@
+services:
+  archive:
+    build: .
+    ports:
+      - "127.0.0.1:8765:8765"
+    volumes:
+      - "${ARCHIVE_PATH:-/Volumes/two1/the_complete_new_yorker}:/archive:ro"
+      - "${ARCHIVE_DATA:-./data}:/data"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8765/api/health')"]
+      interval: 30s
+      timeout: 5s
+      start_period: 5m
+      retries: 3

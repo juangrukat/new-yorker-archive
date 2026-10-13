@@ -1,0 +1,7 @@
+research
+.venv
+data
+.git
+__pycache__
+tests
+dist
