@@ -6,3 +6,17 @@ __pycache__/
 .pytest_cache/
 .env
 dist/
+
+# Local configuration and original magazine content
+.env.*
+!.env.example
+discs/
+*.mdf
+*.mds
+*.iso
+*.djvu
+*.db
+*.db-*
+*.sqlite*
+*.pdf
+.DS_Store

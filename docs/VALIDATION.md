@@ -6,7 +6,7 @@
 - Source images indexed without mounting/extracting entire discs: 4,100 issue files across eight images.
 - Catalog imports 4,109 issues, 188,792 entries, and 500,592 page mappings. All 4,109 cover thumbnails imported.
 - Automatic first-start installer extraction tested directly on disc 1: recovered the 601,788,416-byte catalog and 4,109 thumbnails. The old installer payload is gzip-compressed ASCII cpio, despite its `.pax.gz` name; no installer executes.
-- Eight automated tests pass: catalog totals/filtering, article-to-scan mapping, keyword/contributor search, persistence and bounds, static assets, source-byte fidelity, malformed input rejection, and real decoding/rendering from every disc.
+- Ten automated tests pass (including two portable format checks): catalog totals/filtering, article-to-scan mapping, keyword/contributor search, persistence and bounds, static assets, source-byte fidelity, malformed input rejection, and real decoding/rendering from every disc.
 - One issue from each disc was independently decoded into standard DjVu, with page counts matching the original catalog, and its cover rendered successfully.
 - Source-reader bytes for 1998-01-05 match the 7-Zip-extracted original byte-for-byte by SHA-256.
 - Prior format investigation rendered all 124 pages of 1925-02-21 and 1998-01-05 without failures.

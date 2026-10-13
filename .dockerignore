@@ -5,3 +5,14 @@ data
 __pycache__
 tests
 dist
+
+.env
+.env.*
+discs
+*.mdf
+*.mds
+*.iso
+*.djvu
+*.db
+*.sqlite*
+.DS_Store

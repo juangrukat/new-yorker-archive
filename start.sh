@@ -1,7 +1,12 @@
 #!/bin/sh
 set -eu
 cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
-export TNY_SOURCE="${TNY_SOURCE:-/Volumes/two1/the_complete_new_yorker}"
+if [ -f .env ]; then
+  set -a
+  . ./.env
+  set +a
+fi
+export TNY_SOURCE="${TNY_SOURCE:-$(pwd)/discs}"
 export TNY_DATA="${TNY_DATA:-$(pwd)/data}"
 if ! command -v ddjvu >/dev/null 2>&1; then
   echo 'DjVuLibre is required: brew install djvulibre (macOS), or apt install djvulibre-bin (Linux).' >&2
