@@ -207,7 +207,14 @@ def health():
 
 @app.get('/')
 def home():
-    return FileResponse(ROOT / 'static' / 'index.html')
+    return FileResponse(ROOT / 'static' / 'index.html',headers={'Cache-Control':'no-cache'})
 
 
-app.mount('/static',StaticFiles(directory=ROOT / 'static'),name='static')
+class FreshStaticFiles(StaticFiles):
+    async def get_response(self,path,scope):
+        response=await super().get_response(path,scope)
+        response.headers['Cache-Control']='no-cache'
+        return response
+
+
+app.mount('/static',FreshStaticFiles(directory=ROOT / 'static'),name='static')
